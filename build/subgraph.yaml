@@ -1,0 +1,24 @@
+specVersion: 0.0.4
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: undefined
+    network: matic
+    source:
+      address: "0x648fa1e7dd2722ba93ec4da99f2c32347522a37c"
+      abi: cob
+      startBlock: 27265216
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Transfer
+      abis:
+        - name: cob
+          file: undefined/abis/cob.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: undefined/undefined.wasm
